@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { AppProps as Props } from "next/app";
 import { Provider } from "react-redux";
 import { I18nextProvider } from "react-i18next";
@@ -18,6 +18,30 @@ const App: React.FC<Props> = props => {
   const { Component, pageProps, store } = props;
   const env = process.env.REACT_APP_ENV as string;
   const includedEnv = CONSTANTS.INCLUDED_LOGGER_ENVS.includes(env);
+
+  useEffect(() => {
+    if (!("serviceWorker" in navigator)) {
+      return;
+    }
+    const cb = () => {
+      navigator.serviceWorker.register("/sw.js").then(
+        function (registration) {
+          console.log(
+            "Service Worker registration successful with scope: ",
+            registration.scope
+          );
+        },
+        function (err) {
+          console.log("Service Worker registration failed: ", err);
+        }
+      );
+    };
+    window.addEventListener("load", cb);
+
+    return () => {
+      window.removeEventListener("load", cb);
+    };
+  }, []);
 
   const app = (
     <ReactQueryConfigProvider config={CONSTANTS.REACT_QUERY_CONFIG}>

@@ -11,6 +11,7 @@ const Header: React.FC<Props> = props => {
     <Styles className="Header">
       <Head>
         <title>{pageTitle}</title>
+        <link rel="manifest" href="/manifest.json" />
       </Head>
       <div className="Header__logo-box">
         <PokebolaSVG className="Header__logo" />
