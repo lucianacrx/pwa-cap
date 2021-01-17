@@ -12,13 +12,17 @@ const PokemonHome: React.FC<Props> = props => {
     <Styles className="PokemonHome">
       <Header pageTitle="Pokemón" />
       <main className="PokemonHome__main">
-        {pokemones.map(pokemon => (
-          <Link href={`/pokemon/${pokemon.id}`} passHref>
-            <a>
-              <PokemonCard key={pokemon.id} pokemon={pokemon} />
-            </a>
-          </Link>
-        ))}
+        {pokemones.map(pokemon => {
+          const { id } = pokemon;
+
+          return (
+            <Link key={id} href={`/pokemon/${id}`} passHref>
+              <a href="*">
+                <PokemonCard key={pokemon.id} pokemon={pokemon} />
+              </a>
+            </Link>
+          );
+        })}
       </main>
     </Styles>
   );
