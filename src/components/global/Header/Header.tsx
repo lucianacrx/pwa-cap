@@ -15,7 +15,6 @@ const Header: React.FC<Props> = props => {
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black" />
         <meta name="apple-mobile-web-app-title" content="Pokedex" />
-        <link rel="apple-touch-icon" href="/assets/icons/poke-48x48.png" />
         <link rel="apple-touch-icon" href="/assets/icons/poke-64x64.png" />
         <link rel="apple-touch-icon" href="/assets/icons/poke-72x72.png" />
         <link rel="apple-touch-icon" href="/assets/icons/poke-96x96.png" />
