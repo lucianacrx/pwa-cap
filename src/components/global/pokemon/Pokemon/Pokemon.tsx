@@ -11,8 +11,10 @@ const Pokemon: React.FC<Props> = props => {
   return (
     <Styles className="Pokemon">
       <Header pageTitle={`Pokemón - ${name}`} />
-      <Link href="/">
-        <a className="Pokemon__back">Volver</a>
+      <Link href="/" passHref>
+        <a className="Pokemon__back" href="*">
+          Volver
+        </a>
       </Link>
       <main className="Pokemon__main">
         <div className="Pokemon__right">
